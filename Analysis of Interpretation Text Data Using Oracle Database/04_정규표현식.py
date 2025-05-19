@@ -33,3 +33,40 @@ print("이메일 : ", num4)
 # num5 = re.findall(r'[0-9]+\만원', text)
 num5 = re.findall(r'\d{1,3}만원', text) # \d가 1~3자리
 print("훈련장려금 : ", num5)
+
+
+
+
+#### 수업 추가 실습
+pattern=r"\w+@\w+|\w+"
+print(re.findall(pattern,text))
+
+cleaned = re.sub(r'[🔥・♨♥☆§💸▶★]', '', text)           # 특수문자 제거
+print(cleaned)   # 정제 결과 확인
+
+cleaned = re.sub(r'[🔥・♨♥☆§💸]|(?<=[가-힣])/|(?<=[A-z])/', '', text)           # 특수문자 제거
+print(cleaned)   # 정제 결과 확인
+
+pattern=r"\d+-\d+-\d+"
+print(re.findall(pattern,text))
+
+pattern=r"\d{2,}-\d{3,4}-\d{4}"
+print(re.findall(pattern,text))
+
+pattern=r"https:\/\/[^\s가-힣!%@\\]+"
+print(re.findall(pattern,text))
+
+pattern=r"https:\/\/[a-zA-z\.\/]+"
+print(re.findall(pattern,text))
+
+pattern=r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-z]{2,}"
+print(re.findall(pattern,text))
+
+pattern=r"[\w-]+@[\w-]+\.[A-z]{2,}\.*[A-z]*"
+print(re.findall(pattern,text))
+
+pattern=r"\s(\d+\w원)"
+print(re.findall(pattern,text))
+
+pattern=r"\s(\d+[만|천]원)"
+print(re.findall(pattern,text))
